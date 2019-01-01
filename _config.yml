@@ -36,3 +36,6 @@ paginate_path: /page:num/
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
 highlighter: rouge
+
+
+exclude: [vendor]
