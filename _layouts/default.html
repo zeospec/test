@@ -1,20 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Jekryll testin</title>
-</head>
-<body>
-<header>
-    <h1>Test</h1>
-    <nav>
-    <ul>
-        <li><a href="{{site.baseurl}}/index.html">Home</a></li>
-        <li><a href="{{site.baseurl}}/new.html">News</a></li>
-    </ul>
-    </nav>
-    </header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-{{content}}
+    <link rel="icon" href="{{ site.favicon | prepend: site.baseurl | prepend: site.url }}">
     
-</body>
-</html>
+    <meta name="theme-color" content="#fffff"/>
+    
+    <title>{% if page.type == "year" %}{{ page.date | date: "%Y"}}{% elsif page.type == "month" %}{{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}{{ page.date | date: "%d %B %Y"}}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ page.title }}{% endif %} | {{site.name}}</title>
+    
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% elsif page.type == "year" %}BangPyper's archive of posts during {{ page.type }} {{ page.date | date: "%Y"}}{% elsif page.type == "month" %}BangPyper's archive of posts in the {{ page.type }} of {{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}BangPypers's archive of posts on {{ page.type }} of {{ page.date | date: "%d %B %Y"}}{% elsif page.type == "category" %}BangPyper's archive of posts under {{ page.type }}: {{ page.title }}{% elsif page.type == "tag" %}BangPyper's arvhive of posts authored by {% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- <meta property="fb:app_id" content="" />
+        <meta name="fb:page_id" content="" /> -->
+        
+        <meta property="og:title" content="{% if page.type == "year" %}{{ page.date | date: "%Y"}}{% elsif page.type == "month" %}{{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}{{ page.date | date: "%d %B %Y"}}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ page.title }}{% endif %} | {{site.name}}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+        
+        <!-- <meta property="og:email" content=""/> -->
+        
+        <!-- <meta property="og:phone_number" content=""/> -->
+        
+        <meta property="og:locality" content="Bangalore"/>
+        <meta property="og:region" content="Karnataka"/>
+        <meta property="og:country-name" content="INDIA"/>
+        <meta property="og:site_name" content="{% if page.type == "year" %}{{ page.date | date: "%Y"}}{% elsif page.type == "month" %}{{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}{{ page.date | date: "%d %B %Y"}}{% elsif page.type == "tag" %}{% assign author = site.authors[page.title] %}{{ author.display_name }}{% else %}{{ page.title }}{% endif %} | {{site.name}}"/>
+        <meta property="og:image" content="{% if page.image %}{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% endif %}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{% if author.logo %}{% if author.logo contains "://" %}{{ author.logo }}{% else %}{{ author.logo | absolute_url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}" />
+        <meta property="og:image:width" content="630" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif page.type == "year" %}BangPyper's archive of posts during {{ page.type }} {{ page.date | date: "%Y"}}{% elsif page.type == "month" %}BangPyper's archive of posts in the {{ page.type }} of {{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}BangPypers's archive of posts on {{ page.type }} of {{ page.date | date: "%d %B %Y"}}{% elsif page.type == "category" %}BangPyper's archive of posts under {{ page.type }}: {{ page.title }}{% elsif page.type == "tag" %}BangPyper's arvhive of posts authored by {% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ site.description }}{% endif %}">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:creator" content="@__bangpypers__">
+        <meta name="twitter:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+        <meta name="twitter:site" content="@__bangpypers__">
+        <meta name="twitter:title" content="{% if page.type == "year" %}{{ page.date | date: "%Y"}}{% elsif page.type == "month" %}{{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}{{ page.date | date: "%d %B %Y"}}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ page.title }}{% endif %} | {{site.name}}">
+        <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.type == "year" %}BangPyper's archive of posts during {{ page.type }} {{ page.date | date: "%Y"}}{% elsif page.type == "month" %}BangPyper's archive of posts in the {{ page.type }} of {{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}BangPypers's archive of posts on {{ page.type }} of {{ page.date | date: "%d %B %Y"}}{% elsif page.type == "category" %}BangPyper's archive of posts under {{ page.type }}: {{ page.title }}{% elsif page.type == "tag" %}BangPyper's arvhive of posts authored by {% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ site.description }}{% endif %}">
+        <meta name="twitter:domain" content="{{ site.url }}">
+        <meta name="twitter:image:src" content="{% if page.image %}{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% endif %}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{% if author.logo %}{% if author.logo contains "://" %}{{ author.logo }}{% else %}{{ author.logo | absolute_url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}">
+        
+        <meta name="keywords" content="BangPypers, Python, Bangalore Python, Python Bangalore, Python User Group"/>
+        <meta name="author" content="ZeoSpec" />
+        <meta name="subject" content="The Bangalore Python User Group">
+        <meta name="copyright"content="BangPypers">
+        <meta name="Classification" content="Community">
+        <meta name="designer" content="ZeoSpec">
+        <!-- <meta name="reply-to" content=""> -->
+        <meta name="owner" content="BangPypers">
+        <meta name="url" content="http://bangalore.python.org.in/">
+        <meta name="identifier-URL" content="http://bangalore.python.org.in/">
+        <meta name="directory" content="submission">
+        <meta name="category" content="community">
+        <meta http-equiv="cache-control" content="public" />
+        <meta http-equiv="Expires" content="0">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        
+        <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+        
+        <link href="{{ site.baseurl }}/assets/css/screen.css" rel="stylesheet">
+        
+        <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+        
+    </head>
+    
+    {% if site.google_analytics %}
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', '{{site.google_analytics}}', 'auto');
+        ga('send', 'pageview');
+    </script>
+    {% endif %}
+    
+    {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
+    <body class="{{ layout }}">
+        
+        
+        <!-- Begin Menu Navigation
+            ================================================== -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+                
+                <div class="container pr-0">    
+                    
+                    <!-- Begin Logo -->
+                    <a class="navbar-brand" href="{{ site.baseurl }}/">
+                        <img src="{{ site.logo | prepend: site.baseurl | prepend: site.url }}" alt="{{ site.name }}">
+                    </a>
+                    <!-- End Logo -->
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    
+                    <div class="collapse navbar-collapse" id="navbarMediumish">
+                        
+                        <!-- Begin Menu -->
+                        
+                        <ul class="navbar-nav ml-auto">
+                            
+                            {% if page.url == "/" %}
+                            <li class="nav-item active">
+                                {% else %}
+                                <li class="nav-item">
+                                    {% endif %}
+                                    <a class="nav-link" href="{{ site.baseurl }}/">Home</a>
+                                </li>
+                                
+                                {% if page.url == "/about/" %}
+                                <li class="nav-item active">
+                                    {% else %}
+                                    <li class="nav-item">
+                                        {% endif %}
+                                        <a class="nav-link" href="/about/">About</a>
+                                    </li>
+                                    
+                                    {% if page.url == "/library/" %}
+                                <li class="nav-item active">
+                                    {% else %}
+                                    <li class="nav-item">
+                                        {% endif %}
+                                        <a class="nav-link" href="/library/">Library</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a target="_blank" rel="noopener noreferrer" class="nav-link" href="https://mail.python.org/mailman/listinfo/bangpypers">Mailing List</a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a target="_blank" rel="noopener noreferrer" class="nav-link" href="https://www.meetup.com/BangPypers/">Meetup <i class="fab fa-meetup"></i></a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a target="_blank" rel="noopener noreferrer" class="nav-link" href="https://www.facebook.com/bangpypers"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    
+                                    <li class="nav-item">
+                                        <a target="_blank"  rel="noopener noreferrer" class="nav-link" href="https://twitter.com/__bangpypers__"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                    
+                                </ul>		
+                                
+                                <!-- End Menu -->
+                                
+                            </div>
+                            
+                        </div>
+                    </nav>
+                    <!-- End Navigation
+                        ================================================== -->
+                        
+                        <div class="site-content">   
+                            <div class="container">
+                                
+                                <!-- Site Title
+                                    ================================================== -->
+                                    <div class="mainheading">
+                                        <h1 class="sitetitle">{{ site.name }}</h1>
+                                        <p class="lead"> 
+                                            {{ site.description }}
+                                        </p>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <!-- Content
+                                        ================================================== --> 
+                                        <div class="main-content">
+                                            {{ content }}
+                                        </div>
+                                        
+                                        <!-- Bottom Alert Bar
+                                            ================================================== -->
+                                            <div class="alertbar">
+                                                <div class="container text-center">
+                                                    <span><img src="{{ site.footer_img | prepend: site.baseurl | prepend: site.url }}" alt="{{site.title}}">
+                                                        <!-- &nbsp; Never miss a <b>update</b> from us, subscribe to our newsletter -->
+                                                    </span>
+                                                    
+                                                    <ul class="navbar-nav ml-auto" style="display:inline; margin: 2em;">
+                                                        
+                                                        <li class="nav-item"style="display:inline; margin: 2em;">
+                                                            <a  href="{{ site.baseurl }}/">Home</a>
+                                                        </li>
+                                                        
+                                                        <li class="nav-item"style="display:inline; margin: 2em;">
+                                                            <a  href="/about/">About</a>
+                                                        </li>
+
+                                                        <li class="nav-item"style="display:inline; margin: 2em;">
+                                                            <a href="/library/">Library</a>
+                                                        </li>
+                                                        
+                                                        <li class="nav-item"style="display:inline; margin: 2em;">
+                                                            <a target="_blank" rel="noopener noreferrer" href="https://mail.python.org/mailman/listinfo/bangpypers">Mailing List</a>
+                                                        </li>
+                                                        
+                                                        <li class="nav-item"style="display:inline; margin: 2em;">
+                                                            <a target="_blank" rel="noopener noreferrer" href="https://www.meetup.com/BangPypers/">Meetup <i class="fab fa-meetup"></i></a>
+                                                        </li>
+
+                                                    </ul>
+                                                    
+                                                </div>
+                                            </div>    
+                                            
+                                        </div><!-- /.container -->
+                                        
+                                        <!-- Categories Jumbotron ================================================== -->
+                                        <div class="jumbotron fortags">
+                                            <div class="d-flex h-100">
+                                                <!-- <div class="col-md-4 align-self-center text-center h-100">
+                                                    <div class="d-flex align-items-center justify-content-center h-100">
+                                                        <h2 class="d-md-block d-none align-self-center">Explore →</h2>
+                                                    </div>
+                                                </div> -->
+                                                <div class="col-md-8 align-self-center text-center">
+                                                    {% assign tags_list = site.categories %}  
+                                                    {% if tags_list.first[0] == null %}
+                                                    {% for tag in tags_list %} 
+                                                    <a href="{{ site.baseurl }}/archives/{{ tag }}">{{ tag | capitalize }} {{ site.tags[tag].size }}</a>
+                                                    {% endfor %}
+                                                    {% else %}
+                                                    {% for tag in tags_list %} 
+                                                    <a href="{{ site.baseurl }}/archives/{{ tag[0] }}">{{ tag[0] | capitalize }} ({{ tag[1].size }})</a>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% assign tags_list = nil %}
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        <!-- Begin Footer
+                                            ================================================== -->
+                                            <footer class="footer">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                                                            Copyright © {{ site.time | date: "%Y" }} {{ site.name }} 
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                                                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/wowthemesnet/mediumish-theme-jekyll">Mediumish Theme</a> rewritten by <a target="_blank" rel="noopener noreferrer" href="https://zeospec.com/">ZeoSpec</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </footer>
+                                            <!-- End Footer
+                                                ================================================== -->
+                                                
+                                                
+                                            </div> <!-- /.site-content>
+                                                
+                                                Bootstrap core JavaScript
+                                                    ================================================== -->
+                                                    <!-- Placed at the end of the document so the pages load faster -->
+                                                    
+                                                    <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+                                                    
+                                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+                                                    
+                                                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+                                                    
+                                                    <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script>
+                                                    
+                                                    <script src="{{ site.baseurl }}/assets/js/mediumish.js"></script>
+                                                    
+                                                    <!-- <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script> -->
+                                                </body>
+                                                </html>
+                                                

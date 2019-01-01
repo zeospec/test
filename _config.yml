@@ -1,3 +1,38 @@
-markdown: redcarpet
-baseurl: /test.github.io
-exclude: ['README.md']
+# Site
+name: "BangPypers"
+description: "The Bangalore Python User Group"
+meta_description: "BangPypers – The Bangalore Python User Group"
+logo: '/assets/images/logo.jpg'
+favicon: '/assets/images/logo.jpg'
+og_img: '/assets/images/logo_og.jpg'
+footer_img: '/assets/images/logo_footer.jpg'
+baseurl: ""
+url: ""
+# google_analytics: ''
+# disqus: ''
+# mailchimp-list: 'https://rotaract3190.us19.list-manage.com/subscribe/post?u=ec2994fa04b0856e3913be84e&amp;id=7eb0482b27'
+
+# Plugins
+plugins: 
+  - jekyll-paginate
+  - jekyll-archives
+    
+# Archives
+jekyll-archives:
+  enabled: all
+  layout: archive
+  permalinks:
+    category: '/archives/:name/'
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/authors/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+
+# Other
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+highlighter: rouge
