@@ -1,3 +1,13 @@
+# GitHub
+username:             zeospec
+repo:                 test.github.io
+branch:               master
+
+# Jekyll source / destination
+source:               .
+destination:          _site
+
+
 # Site
 name: "BangPypers"
 description: "The Bangalore Python User Group"
