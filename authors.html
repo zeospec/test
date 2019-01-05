@@ -18,7 +18,7 @@ description: The archive showing list of authors who contributed to &quot;BangPy
                     <div class="card-footer bg-white">
                         <div class="wrapfooter">
                             <span class="meta-footer-thumb">
-                                <a href="{{ site.baseurl }}/authors/{{tag}}/"><img class="author-thumb" src="{% if site.data.authors[tag].logo %}{% if site.data.authors[tag].logo contains "://" %}{{ site.data.authors[tag].logo }}{% else %}{{ site.data.authors[tag].logo | absolute_url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}" alt="{{ site.data.authors[tag].display_name }}"></a>
+                                <a href="{{ site.baseurl }}/authors/{{tag}}/"><img class="author-thumb" src="{% if site.data.authors[tag].logo %}{% if site.data.authors[tag].logo contains "://" %}{{ site.data.authors[tag].logo }}{% else %}{{site.baseurl}}{{ site.data.authors[tag].logo }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}" alt="{{ site.data.authors[tag].display_name }}"></a>
                             </span>                
                             <span class="author-meta">
                                 <span class="post-name"><a href="{{ site.baseurl }}/authors/{{tag}}/">{{ site.data.authors[tag].display_name }}</a></span><br/>
