@@ -29,6 +29,6 @@ Saurabh was supposed to give a flash talk about decorators but it ended up being
 <iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/DsYxOOqgveE?list=PL6GW05BfqWIfjFsoxJTnE4g7ddFkO5ZtG" frameborder="0" allowfullscreen></iframe>
 
 [Anand]: https://anandology.com
-[web.py]: https://webpy.org/
+[web.py]: http://webpy.org/
 [Lakshman]: https://twitter.com/becomingGuru
 [medium]: https://medium.com/p/128048074e9f

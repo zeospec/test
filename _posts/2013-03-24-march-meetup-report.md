@@ -35,4 +35,4 @@ speaker face was focused, as a result video is now unusable. Sorry :-(.
 
 [FSMK]: https://www.fsmk.org/
 [Arun]: https://arunrocks.com/
-[Siva]: https://www.facebook.com/sivasubramaniam?fref=ts
+[Siva]: https://www.facebook.com/sivasubramaniam
