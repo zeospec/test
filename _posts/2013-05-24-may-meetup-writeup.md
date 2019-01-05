@@ -37,7 +37,7 @@ You can subscribe to [mailing list][], [meetup][] page, [facebook][] page, [yout
 
 [Aplhalabs]: https://bangalorealphalab.in/
 [Anand]: https://anandology.com
-[Kracekumar]: https://kracekumar.com
+[Kracekumar]: http://kracekumar.com
 [Empythoned]: https://github.com/replit/empythoned
 [emscripten]: https://github.com/kripken/emscripten
 [mailing list]: https://mail.python.org/mailman/listinfo/bangpypers
