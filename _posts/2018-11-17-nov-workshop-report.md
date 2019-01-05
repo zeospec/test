@@ -6,7 +6,7 @@ tags: [bangpypers]
 description: "Code Walkthrough - November 2018"
 categories: [ meetup, talks, workshop, codewalkthrough ]
 image: november2012.png
-featured: false
+featured: true
 hidden: false
 ---
 

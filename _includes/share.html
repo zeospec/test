@@ -4,19 +4,19 @@
     </p>
     <ul>
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | prepend: site.baseurl | prepend: site.url }}">
         <i class="fab fa-twitter"></i>
         </a>
         </li>
         
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://facebook.com/sharer.php?u={{ page.url | absolute_url }}&title={{ page.title }}">
+        <a target="_blank" href="https://facebook.com/sharer.php?u={{ page.url | prepend: site.baseurl | prepend: site.url }}&title={{ page.title }}">
         <i class="fab fa-facebook-f"></i>
         </a>
         </li>
         
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://plus.google.com/share?url={{ page.url | absolute_url }}">
+        <a target="_blank" href="https://plus.google.com/share?url={{ page.url | prepend: site.baseurl | prepend: site.url }}">
         <i class="fab fa-google"></i>
         </a>
         </li>
