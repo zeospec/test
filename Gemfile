@@ -4,7 +4,6 @@ ruby RUBY_VERSION
 source "https://rubygems.org"
 gem 'github-pages'
 gem 'thin'
-gem "html-proofer"
 
 
 # Hello! This is where you manage which Jekyll version is used to run.
