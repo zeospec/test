@@ -1,7 +1,6 @@
 #!/bin/bash
 set -ev && \
 cd ./_site && \
-remote_repo=${GITHUB_URL:-`git config remote.origin.url`} && \
 remote_branch="gh-pages" && \
 git init && \
 git config user.name "zeospec" && \
