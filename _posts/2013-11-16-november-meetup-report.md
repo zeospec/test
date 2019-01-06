@@ -10,7 +10,7 @@ featured: false
 hidden: false
 ---
 
-[November Bangpypers](https://www.meetup.com/BangPypers/events/125797522/) held at [ThoughtWorks office](https://www.google.co.in/maps/preview#!q=ThoughtWorks%2C+147%2FF%2C+2nd+Floor%2C+ACR+Mansion%2C+8th+Main+Rd%2C+3rd+Block%2C+Koramangala%2C+Bangalore%2C+Karnataka%2C+560034%2C+Koramangala+3+Block%2C+Koramangala%2C+Bangalore%2C+Karnataka&data=!4m15!2m14!1m13!1s0x3bae14053a4499f5%3A0xe2b2b820791f972d!3m8!1m3!1d228436!2d77.6309395!3d12.9539974!3m2!1i1280!2i705!4f13.1!4m2!3d12.928713!4d77.62889). 15 people attended the meetup.
+[November Bangpypers](www.meetup.com/BangPypers/events/125797522/) held at [ThoughtWorks office](https://www.google.co.in/maps/preview#!q=ThoughtWorks%2C+147%2FF%2C+2nd+Floor%2C+ACR+Mansion%2C+8th+Main+Rd%2C+3rd+Block%2C+Koramangala%2C+Bangalore%2C+Karnataka%2C+560034%2C+Koramangala+3+Block%2C+Koramangala%2C+Bangalore%2C+Karnataka&data=!4m15!2m14!1m13!1s0x3bae14053a4499f5%3A0xe2b2b820791f972d!3m8!1m3!1d228436!2d77.6309395!3d12.9539974!3m2!1i1280!2i705!4f13.1!4m2!3d12.928713!4d77.62889). 15 people attended the meetup.
 
 Talks
 ---

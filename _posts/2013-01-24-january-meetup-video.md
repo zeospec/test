@@ -20,4 +20,4 @@ hidden: false
 We didn't have time for lighting talks.
 
 [Anand]: https://anandology.com
-[web.py]: http://webpy.org/
+[web.py]: https://webpy.org/

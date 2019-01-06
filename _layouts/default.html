@@ -27,7 +27,7 @@
         <meta property="og:region" content="Karnataka"/>
         <meta property="og:country-name" content="INDIA"/>
         <meta property="og:site_name" content="{% if page.type == "year" %}{{ page.date | date: "%Y"}}{% elsif page.type == "month" %}{{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}{{ page.date | date: "%d %B %Y"}}{% elsif page.type == "tag" %}{% assign author = site.authors[page.title] %}{{ author.display_name }}{% else %}{{ page.title }}{% endif %} | {{site.name}}"/>
-        <meta property="og:image" content="{% if page.image %}{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% endif %}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{% if author.logo %}{% if author.logo contains "://" %}{{ author.logo }}{% else %}{{ author.logo | absolute_url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}" />
+        <meta property="og:image" content="{% if page.image %}{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% endif %}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{% if author.logo %}{% if author.logo contains "://" %}{{ author.logo }}{% else %}{{ author.logo | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}" />
         <meta property="og:image:width" content="630" />
         <meta property="og:image:height" content="630" />
         <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif page.type == "year" %}BangPyper's archive of posts during {{ page.type }} {{ page.date | date: "%Y"}}{% elsif page.type == "month" %}BangPyper's archive of posts in the {{ page.type }} of {{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}BangPypers's archive of posts on {{ page.type }} of {{ page.date | date: "%d %B %Y"}}{% elsif page.type == "category" %}BangPyper's archive of posts under {{ page.type }}: {{ page.title }}{% elsif page.type == "tag" %}BangPyper's arvhive of posts authored by {% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ site.description }}{% endif %}">
@@ -38,7 +38,7 @@
         <meta name="twitter:title" content="{% if page.type == "year" %}{{ page.date | date: "%Y"}}{% elsif page.type == "month" %}{{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}{{ page.date | date: "%d %B %Y"}}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ page.title }}{% endif %} | {{site.name}}">
         <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.type == "year" %}BangPyper's archive of posts during {{ page.type }} {{ page.date | date: "%Y"}}{% elsif page.type == "month" %}BangPyper's archive of posts in the {{ page.type }} of {{ page.date | date: "%B %Y"}}{% elsif page.type == "day" %}BangPypers's archive of posts on {{ page.type }} of {{ page.date | date: "%d %B %Y"}}{% elsif page.type == "category" %}BangPyper's archive of posts under {{ page.type }}: {{ page.title }}{% elsif page.type == "tag" %}BangPyper's arvhive of posts authored by {% assign author = site.data.authors[page.title] %}{{ author.display_name }}{% else %}{{ site.description }}{% endif %}">
         <meta name="twitter:domain" content="{{ site.url }}">
-        <meta name="twitter:image:src" content="{% if page.image %}{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% endif %}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{% if author.logo %}{% if author.logo contains "://" %}{{ author.logo }}{% else %}{{ author.logo | absolute_url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}">
+        <meta name="twitter:image:src" content="{% if page.image %}{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | prepend: site.baseurl | prepend: site.url }}{% endif %}{% elsif page.type == "tag" %}{% assign author = site.data.authors[page.title] %}{% if author.logo %}{% if author.logo contains "://" %}{{ author.logo }}{% else %}{{ author.logo | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}{% else %}{{ site.og_img | prepend: site.baseurl | prepend: site.url }}{% endif %}">
         
         <meta name="keywords" content="BangPypers, Python, Bangalore Python, Python Bangalore, Python User Group"/>
         <meta name="author" content="ZeoSpec" />
@@ -88,7 +88,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
                 
                 <div class="container pr-0">    
-                    
+                     
                     <!-- Begin Logo -->
                     <a class="navbar-brand" href="{{ site.baseurl }}/">
                         <img src="{{ site.logo | prepend: site.baseurl | prepend: site.url }}" alt="{{ site.name }}">
@@ -181,7 +181,7 @@
                                             ================================================== -->
                                             <div class="alertbar">
                                                 <div class="container text-center">
-                                                    <span><img src="{{ site.footer_img | prepend: site.baseurl | prepend: site.url }}" alt="{{site.name}}">
+                                                    <span><img src="{{ site.footer_img | prepend: site.baseurl | prepend: site.url }}" alt="{{site.title}}">
                                                         <!-- &nbsp; Never miss a <b>update</b> from us, subscribe to our newsletter -->
                                                     </span>
                                                     
