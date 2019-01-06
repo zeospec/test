@@ -15,11 +15,11 @@ description: List of all posts by &quot;BangPypers – The Bangalore Python Use
             {% assign currentDate = post.date | date: "%Y" %}          
             {% if currentDate != myDate %}
             {% unless forloop.first %}</ul>{% endunless %}           
-            <a href="{{site.baseurl}}/{{ post.date | date: "%Y" }}" style="color:initial;"><h3>{{ currentDate }}</h3></a>
+            <a href="{{site.baseurl}}/blog/{{ post.date | date: "%Y" }}" style="color:initial;"><h3>{{ currentDate }}</h3></a>
             <ul style="list-style-type:none;">
                 {% assign myDate = currentDate %}
                 {% endif %}
-                <li><a href="{{site.baseurl}}/{{ post.date | date: "%Y/%m" }}" style="color:initial;"><span class="text-muted">{{ post.date | date: "%B %-d" }}</span></a> - <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></li>
+                <li><a href="{{site.baseurl}}/blog/{{ post.date | date: "%Y/%m" }}" style="color:initial;"><span class="text-muted">{{ post.date | date: "%B %-d" }}</span></a> - <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">{{ post.title }}</a></li>
                 {% if forloop.last %}</ul>{% endif %}
                 {% endfor %}
            </div>    
