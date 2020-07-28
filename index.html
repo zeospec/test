@@ -1,61 +1,16 @@
----
-layout: default
-title: Home
----
+<!doctype html>
+<html lang="en">
 
-{% if page.url == "/" %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calendar Test</title>
+</head>
 
-<!-- Featured
-================================================== -->
-<section class="featured-posts">
-    <div class="section-title">
-        <h2><span>Featured</span></h2>
-    </div>
-    <div class="row">
-        
-    {% for post in site.posts %}
+<body>
+    <iframe
+        src="https://calendar.google.com/calendar/b/0/embed?height=600&amp;wkst=1&amp;bgcolor=%23039BE5&amp;ctz=Asia%2FKolkata&amp;src=cG9pM2V1dWw4amhqOHMwNmhyMTloczdicG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237CB342&amp;mode=AGENDA&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;showDate=0"
+        style="border-width:0" width="100%" height="800" frameborder="0" scrolling="no"></iframe>
+</body>
 
-        {% if post.featured == true %}
-
-            {% include featuredbox.html %}
-
-        {% endif %} 
-
-    {% endfor %}
-        
-    </div>
-</section>
-
-{% endif %}
-
-<!-- Posts Index
-================================================== -->
-<section class="recent-posts">
-    
-    <div class="section-title">
-        
-        <h2><span>All Listings</span></h2>
-        
-    </div>
-    
-    <div class="row listrecent">
-
-        {% for post in paginator.posts %}
-
-               {% include postbox.html %}          
-
-        {% endfor %}
-        
-    </div>
-    
-</section>
-
-<!-- Pagination
-================================================== -->
-<div class="bottompagination">
-<div class="pointerup"><i class="fa fa-caret-up"></i></div>
-<span class="navigation" role="navigation">
-    {% include pagination.html %}
-</span>
-</div>
-
+</html>
